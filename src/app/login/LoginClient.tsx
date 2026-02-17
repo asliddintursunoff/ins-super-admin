@@ -26,6 +26,7 @@ export default function LoginClient() {
 
       const me = await superMe();
       toast.success(`Welcome, ${me.first_name} ${me.last_name}`);
+
       router.replace(next);
     } catch (err: any) {
       toast.error(err?.message || "Login failed");
@@ -39,7 +40,9 @@ export default function LoginClient() {
       <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-100">
         <div className="mb-6">
           <h1 className="text-xl font-semibold">Admin login</h1>
-          <p className="mt-1 text-sm text-slate-600">Sign in with your superuser credentials.</p>
+          <p className="mt-1 text-sm text-slate-600">
+            Sign in with your superuser credentials.
+          </p>
         </div>
 
         <form onSubmit={onSubmit} className="space-y-4">
@@ -62,10 +65,6 @@ export default function LoginClient() {
             Sign in
           </Button>
         </form>
-
-        <div className="mt-6 text-xs text-slate-500">
-          Tip: If you see “Server returned HTML”, your backend URL is wrong or Railway is returning an HTML error page.
-        </div>
       </div>
     </div>
   );
